@@ -16,7 +16,8 @@ require("debian.menu")
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 -- default theme --beautiful.init("/usr/share/awesome/themes/default/theme.lua")
-beautiful.init("/usr/share/awesome/themes/Da-V-Theme/theme.lua")
+--beautiful.init("/home/valentin/.config/awesome/Da-V-Theme/theme.lua")
+beautiful.init(awful.util.getdir("config") .. "/Da-V-Theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
@@ -24,11 +25,7 @@ editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
--- Usually, Mod4 is the key with a logo between Control and Alt.
--- If you do not like this or do not have such a key,
--- I suggest you to remap Mod4 to another key using xmodmap or other tools.
--- However, you can use another modifier like Mod1, but it may interact with others.
-modkey = "Mod4"
+modkey = "Mod4" -- "Windows" Key, between ctrl and alt
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
@@ -244,6 +241,7 @@ globalkeys = awful.util.table.join(
     --FireFox
     awful.key({ modkey,           }, "w", function () awful.util.spawn("firefox") end),
 
+    --Dmenu
     awful.key({ modkey },              "r", 
         function ()
             awful.util.spawn("dmenu_run -i -p 'Run Program:' -fn '-*-*-*-*-*-*-*-130-*-*-*-*-*-*' -nb '" .. 
@@ -256,7 +254,7 @@ globalkeys = awful.util.table.join(
     ----End of Custom Binds----
     ---------------------------
 
-    -- Prompt
+    --Default awesome prompt, replaced by dmenu
     --awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
 
     awful.key({ modkey }, "x",
