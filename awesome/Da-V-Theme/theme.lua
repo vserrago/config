@@ -3,7 +3,8 @@
 --------------------------
 
 theme = {}
-theme.confdir = awful.util.getdir("config")
+theme.confdir = awful.util.getdir("config") .. "/Da-V-Theme/"
+theme.defdir = "/usr/share/awesome/themes/default/"
 
 theme.font          = "sans 8"
 
@@ -74,24 +75,22 @@ theme.titlebar_maximized_button_focus_inactive  = "/usr/share/awesome/themes/def
 theme.titlebar_maximized_button_normal_active = "/usr/share/awesome/themes/default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = "/usr/share/awesome/themes/default/titlebar/maximized_focus_active.png"
 
--- You can use your own command to set your wallpaper
---theme.wallpaper_cmd = { "awsetbg /usr/share/awesome/themes/Da-V-Theme/background.png" }
---theme.wallpaper_cmd = { "awsetbg" .. theme.confdir .. "/Da-V-Theme/background.png" }
-theme.wallpaper_cmd = { "awsetbg  /home/valentin/.config/awesome/Da-V-Theme/background.png" }
+-- Wallpaper
+theme.wallpaper_cmd = { "awsetbg" .. theme.confdir .. "background.png" }
 
--- You can use your own layout icons like this:
-theme.layout_fairh = "/usr/share/awesome/themes/default/layouts/fairhw.png"
-theme.layout_fairv = "/usr/share/awesome/themes/default/layouts/fairvw.png"
-theme.layout_floating  = "/usr/share/awesome/themes/default/layouts/floatingw.png"
-theme.layout_magnifier = "/usr/share/awesome/themes/default/layouts/magnifierw.png"
-theme.layout_max = "/usr/share/awesome/themes/default/layouts/maxw.png"
-theme.layout_fullscreen = "/usr/share/awesome/themes/default/layouts/fullscreenw.png"
-theme.layout_tilebottom = "/usr/share/awesome/themes/default/layouts/tilebottomw.png"
-theme.layout_tileleft   = "/usr/share/awesome/themes/default/layouts/tileleftw.png"
-theme.layout_tile = "/usr/share/awesome/themes/default/layouts/tilew.png"
-theme.layout_tiletop = "/usr/share/awesome/themes/default/layouts/tiletopw.png"
-theme.layout_spiral  = "/usr/share/awesome/themes/default/layouts/spiralw.png"
-theme.layout_dwindle = "/usr/share/awesome/themes/default/layouts/dwindlew.png"
+-- Layout icons
+theme.layout_fairh =        theme.confdir .. "layouts/fairhw.png"
+theme.layout_fairv =        theme.confdir .. "layouts/fairvw.png"
+theme.layout_floating  =    theme.defdir  .. "layouts/floatingw.png"
+theme.layout_magnifier =    theme.defdir  .. "layouts/magnifierw.png"
+theme.layout_max =          theme.defdir  .. "layouts/maxw.png"
+theme.layout_fullscreen =   theme.defdir  .. "layouts/fullscreenw.png"
+theme.layout_tilebottom =   theme.defdir  .. "layouts/tilebottomw.png"
+theme.layout_tileleft   =   theme.defdir  .. "layouts/tileleftw.png"
+theme.layout_tile =         theme.defdir  .. "layouts/tilew.png"
+theme.layout_tiletop =      theme.defdir  .. "layouts/tiletopw.png"
+theme.layout_spiral  =      theme.defdir  .. "layouts/spiralw.png"
+theme.layout_dwindle =      theme.defdir  .. "layouts/dwindlew.png"
 
 theme.awesome_icon = "/usr/share/awesome/icons/awesome16.png"
 
