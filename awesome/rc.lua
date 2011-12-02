@@ -15,8 +15,6 @@ require("debian.menu")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
--- default theme --beautiful.init("/usr/share/awesome/themes/default/theme.lua")
---beautiful.init("/home/valentin/.config/awesome/Da-V-Theme/theme.lua")
 beautiful.init(awful.util.getdir("config") .. "/Da-V-Theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.

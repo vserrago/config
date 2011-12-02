@@ -44,7 +44,7 @@ theme.wallpaper_cmd = { "awsetbg " .. theme.confdir .. "background.png" }
 theme.taglist_squares_sel       = theme.defdir .. "taglist/squarefw.png"
 theme.taglist_squares_unsel     = theme.defdir .. "taglist/squarew.png"
 
-theme.tasklist_floating_icon    = theme.defdir .. "tasklist/floatingw.png"
+theme.tasklist_floating_icon    = theme.confdir .. "tasklist/floatingw.png"
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
@@ -58,19 +58,19 @@ theme.menu_width        = "150"
 -- beautiful.variable in your rc.lua
 --theme.bg_widget = "#cc0000"
 
--- Layout icons
-theme.layout_floating   = theme.defdir  .. "layouts/floatingw.png"
-theme.layout_tile       = theme.defdir  .. "layouts/tilew.png"
-theme.layout_tileleft   = theme.defdir  .. "layouts/tileleftw.png"
-theme.layout_tilebottom = theme.defdir  .. "layouts/tilebottomw.png"
-theme.layout_tiletop    = theme.defdir  .. "layouts/tiletopw.png"
-theme.layout_fairv      = theme.confdir .. "layouts/fairvw.png"
-theme.layout_fairh      = theme.confdir .. "layouts/fairhw.png"
-theme.layout_spiral     = theme.defdir  .. "layouts/spiralw.png"
-theme.layout_dwindle    = theme.defdir  .. "layouts/dwindlew.png"
-theme.layout_max        = theme.defdir  .. "layouts/maxw.png"
-theme.layout_fullscreen = theme.defdir  .. "layouts/fullscreenw.png"
-theme.layout_magnifier  = theme.defdir  .. "layouts/magnifierw.png"
+-- Layout icons                                                     --Layout #
+theme.layout_floating   = theme.confdir .. "layouts/floatingw.png"      -- 1
+theme.layout_tile       = theme.defdir  .. "layouts/tilew.png"          -- 2
+theme.layout_tileleft   = theme.defdir  .. "layouts/tileleftw.png"      -- 3
+theme.layout_tilebottom = theme.defdir  .. "layouts/tilebottomw.png"    -- 4
+theme.layout_tiletop    = theme.defdir  .. "layouts/tiletopw.png"       -- 5 
+theme.layout_fairv      = theme.confdir .. "layouts/fairvw.png"         -- 6
+theme.layout_fairh      = theme.confdir .. "layouts/fairhw.png"         -- 7
+theme.layout_spiral     = theme.defdir  .. "layouts/spiralw.png"        -- 8
+theme.layout_dwindle    = theme.defdir  .. "layouts/dwindlew.png"       -- 9
+theme.layout_max        = theme.defdir  .. "layouts/maxw.png"           -- 10
+theme.layout_fullscreen = theme.defdir  .. "layouts/fullscreenw.png"    -- 11
+theme.layout_magnifier  = theme.defdir  .. "layouts/magnifierw.png"     -- 12
 
 -- Awesome tray icon
 theme.awesome_icon      = "/usr/share/awesome/icons/awesome16.png"
