@@ -3,6 +3,9 @@
 #Set WM based on host
 if [ "$HOSTNAME" = "oldreliable" ]; then
     WM=awesome
+#WM=dwm
+elif [ "$HOSTNAME" = "centralcommand" ]; then
+    WM=awesome
     #WM=dwm
 #SCS hosts europa, elara, etc
 else
