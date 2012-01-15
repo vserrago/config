@@ -1,0 +1,13 @@
+# 
+
+FILES=(
+    
+    awesome         $HOME/.config/awesome
+    bashrc          $HOME/.bashrc
+    bash_aliases    $HOME/.bash_aliases
+    profile         $HOME/.profile
+    vim             $HOME/.vim
+    vimrc           $HOME/.vimrc
+    Xdefaults       $HOME/.Xdefaults
+    xsession        $HOME/.xsession
+)
