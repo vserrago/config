@@ -3,10 +3,11 @@
 #Set WM based on host
 if [ "$HOSTNAME" = "oldreliable" ]; then
     WM=awesome
-#WM=dwm
+    #WM=dwm
 elif [ "$HOSTNAME" = "centralcommand" ]; then
     WM=awesome
     #WM=dwm
+    xset b off
 #SCS hosts europa, elara, etc
 else
     WM=dwm
@@ -23,5 +24,5 @@ elif [ "$WM" = "dwm" ]; then
     sleep 30
     done &
 
-    exec ~/dwm/launcher.sh
+    exec ~/dwm/dwm
 fi
