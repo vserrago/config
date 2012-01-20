@@ -12,3 +12,5 @@ alias cu='cd ..'
 alias copyDWM='scp -r /home/valentin/dwm/ scs:'
 
 alias dat='date +%a\ %b\ %d,\ %I:%M\ %p'
+
+alias targz='tar -zxvf'

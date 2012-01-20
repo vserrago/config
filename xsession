@@ -5,9 +5,15 @@ if [ "$HOSTNAME" = "oldreliable" ]; then
     WM=awesome
     #WM=dwm
 elif [ "$HOSTNAME" = "centralcommand" ]; then
-    WM=awesome
-    #WM=dwm
+    #WM=awesome
+    WM=dwm
+
+    #Turn off bell
     xset b off
+
+    #Enable xbindkeys
+    #exec xbindkey &
+
 #SCS hosts europa, elara, etc
 else
     WM=dwm
@@ -24,5 +30,5 @@ elif [ "$WM" = "dwm" ]; then
     sleep 30
     done &
 
-    exec ~/dwm/dwm
+    exec ~/dwm/launcher.sh
 fi
