@@ -49,7 +49,7 @@ theme.tasklist_floating_icon    = theme.confdir .. "tasklist/floatingw.png"
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
-theme.menu_submenu_icon = theme.defdir .. "submenu.png"
+theme.menu_submenu_icon = theme.confdir .. "submenu.png"
 theme.menu_height       = "15"
 theme.menu_width        = "150"
 
