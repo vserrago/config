@@ -5,8 +5,8 @@ if [ "$HOSTNAME" = "oldreliable" ]; then
     WM=awesome
     #WM=dwm
 elif [ "$HOSTNAME" = "centralcommand" ]; then
-    #WM=awesome
-    WM=dwm
+    WM=awesome
+    #WM=dwm
 
     #Turn off bell
     xset b off

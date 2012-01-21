@@ -177,6 +177,7 @@ end
 
 -- {{{ Mouse bindings
 root.buttons(awful.util.table.join(
+    --awful.button({ }, 3, function () mymainmenu:toggle() end)
     awful.button({ }, 3, function () mymainmenu:toggle() end),
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
@@ -346,15 +347,14 @@ awful.rules.rules = {
                      keys = clientkeys,
                      size_hints_honor = false,
                      buttons = clientbuttons } },
+    -- Start windows as slave
+    { rule = { }, properties = { }, callback = awful.client.setslave },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
     { rule = { class = "pinentry" },
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
-    -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { tag = tags[1][2] } },
     --{ rule = { class = "wicd-client.py" },
     --  properties = { tag = tags[9] } },
 }
