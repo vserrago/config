@@ -73,7 +73,7 @@ theme.layout_fullscreen = theme.defdir  .. "layouts/fullscreenw.png"    -- 11
 theme.layout_magnifier  = theme.defdir  .. "layouts/magnifierw.png"     -- 12
 
 -- Awesome tray icon
-theme.awesome_icon      = "/usr/share/awesome/icons/awesome16.png"
+theme.awesome_icon      = theme.confdir .. "icons/awesome16.png"
 
 -- Define the image to load
 theme.titlebar_close_button_focus               = theme.defdir .. "titlebar/close_focus.png"
