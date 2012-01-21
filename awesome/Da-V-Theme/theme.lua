@@ -56,20 +56,20 @@ theme.menu_width        = "150"
 -- You can add as many variables as
 -- you wish and access them by using
 -- beautiful.variable in your rc.lua
---theme.bg_widget = "#cc0000"
+-- theme.bg_widget = "#cc0000"
 
 -- Layout icons                                                     --Layout #
 theme.layout_floating   = theme.confdir .. "layouts/floatingw.png"      -- 1
-theme.layout_tile       = theme.defdir  .. "layouts/tilew.png"          -- 2
-theme.layout_tileleft   = theme.defdir  .. "layouts/tileleftw.png"      -- 3
-theme.layout_tilebottom = theme.defdir  .. "layouts/tilebottomw.png"    -- 4
-theme.layout_tiletop    = theme.defdir  .. "layouts/tiletopw.png"       -- 5 
+theme.layout_tile       = theme.confdir .. "layouts/tilew.png"          -- 2
+theme.layout_tileleft   = theme.confdir .. "layouts/tileleftw.png"      -- 3
+theme.layout_tilebottom = theme.confdir .. "layouts/tilebottomw.png"    -- 4
+theme.layout_tiletop    = theme.confdir .. "layouts/tiletopw.png"       -- 5 
 theme.layout_fairv      = theme.confdir .. "layouts/fairvw.png"         -- 6
 theme.layout_fairh      = theme.confdir .. "layouts/fairhw.png"         -- 7
 theme.layout_spiral     = theme.defdir  .. "layouts/spiralw.png"        -- 8
 theme.layout_dwindle    = theme.defdir  .. "layouts/dwindlew.png"       -- 9
 theme.layout_max        = theme.defdir  .. "layouts/maxw.png"           -- 10
-theme.layout_fullscreen = theme.defdir  .. "layouts/fullscreenw.png"    -- 11
+theme.layout_fullscreen = theme.confdir .. "layouts/fullscreenw.png"    -- 11
 theme.layout_magnifier  = theme.defdir  .. "layouts/magnifierw.png"     -- 12
 
 -- Awesome tray icon
