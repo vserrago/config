@@ -4,6 +4,7 @@
 if [ "$HOSTNAME" = "oldreliable" ]; then
     WM=awesome
     #WM=dwm
+
 elif [ "$HOSTNAME" = "centralcommand" ]; then
     WM=awesome
     #WM=dwm
@@ -14,7 +15,13 @@ elif [ "$HOSTNAME" = "centralcommand" ]; then
     #Enable xbindkeys
     #exec xbindkey &
 
-#SCS hosts europa, elara, etc
+elif [ "$HOSTNAME" = "europa" -o "$HOSTNAME" = "elara" -o "$HOSTNAME" = "metis" -o "$HOSTNAME" = "thebe" ]; then
+    WM=dwm
+
+    #Turn off bell
+    xset b off
+
+#Default host
 else
     WM=dwm
 fi

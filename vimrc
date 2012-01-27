@@ -37,29 +37,19 @@ set visualbell   " use whatever 't_vb' is set to as a bell
 set t_vb=        " set to nothing (disable)
 
 " restore 't_vb' since it is reset after the GUI starts
-if has("gui_running")
-    augroup disable_gui_visualbell
-        autocmd!
-        autocmd GUIEnter * set t_vb=
-    augroup end
-endif
+"if has("gui_running")
+"    augroup disable_gui_visualbell
+"        autocmd!
+"        autocmd GUIEnter * set t_vb=
+"    augroup end
+"endif
 
 " --command-line completion
 set wildmenu    " enhanced command-line completion
 
 " --visual theme and appearance
-"colorscheme matrix  " preferred colorscheme
-"colorscheme darkblue  " preferred colorscheme
-colorscheme norwaytoday " preferred colorscheme
-"colorscheme neverland  " preferred colorscheme
-
-if has("gui_running")
-    " gVim specific
-
-    " gVim interface modification
-    "set guioptions-=m " remove menu bar
-    "set guioptions-=T " remove toolbar
-endif
+"colorscheme norwaytoday " preferred colorscheme
+colorscheme neverland  " preferred colorscheme
 
 " force 256 colours (required for xterm and screen-bce $TERMs)
 if &term == "xterm" || &term == "screen-bce"

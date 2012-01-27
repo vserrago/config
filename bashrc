@@ -5,6 +5,8 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+PS1='\u@\h:\W\$ '
+
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
 HISTCONTROL=$HISTCONTROL${HISTCONTROL+:}ignoredups
@@ -21,6 +23,8 @@ shopt -s histappend
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+shopt -s no_empty_cmd_completion
 
 # make less more friendly for non-text input files, see lesspipe(1)
 #[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -67,6 +71,40 @@ xterm*|rxvt*)
     ;;
 esac
 
+#Settings based on host
+#if [ "$HOSTNAME" = "oldreliable" ]
+#then
+#    #Nothing yet
+#
+#elif [ "$HOSTNAME" = "centralcommand" ]
+#then
+#    #Nothing yet
+#
+#el
+if [ "$HOSTNAME" = "europa" -o "$HOSTNAME" = "elara" -o "$HOSTNAME" = "metis" -o "$HOSTNAME" = "thebe" ]
+then
+
+    #Set $TERM to something recognizable when in urxvt
+    if [ "$TERM" = "xterm" -a -e /usr/share/terminfo/x/xterm-256color ]
+    then
+        TERM=xterm-256color
+    #Putty
+    elif [ "$TERM" = "vt100" -a -e /usr/share/terminfo/x/xterm-256color ]
+    then
+        TERM=xterm-256color
+    #Urxvt
+    elif [ "$TERM" = "rxvt-unicode-256color" -a ! -e /usr/share/terminfo/r/rxvt-unicode-256color ]
+    then
+        TERM=xterm-256color
+    fi
+
+    # Load aliases unique to scs
+    if [ -f ~/.scs_aliases ]; then
+        . ~/.scs_aliases
+    fi
+fi
+
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -81,6 +119,7 @@ fi
 
 # some more ls aliases
 alias ll='ls -l'
+alias lh='ls -lh'
 alias la='ls -A'
 alias l='ls -CF'
 
