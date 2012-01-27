@@ -1,7 +1,7 @@
 set background=dark "or light
 highlight clear
 if exists("syntax_on")
-        syntax reset
+    syntax reset
     endif
     let g:colors_name = "vivify"
     set t_Co=256
@@ -49,14 +49,14 @@ if exists("syntax_on")
     highlight MatchParen          guifg=#eeeeee ctermfg=255                           gui=none cterm=none
     highlight ModeMsg             guifg=#eeeeee ctermfg=255                           gui=none cterm=none
     highlight MoreMsg             guifg=#eeeeee ctermfg=255                           gui=none cterm=none
-    highlight NonText             guifg=#eeeeee ctermfg=255                           gui=none cterm=none
-    highlight Normal              guifg=#eeeeee ctermfg=255 guibg=#1c1c1c ctermbg=234 gui=none cterm=none
+    highlight NonText             guifg=#eeeeee ctermfg=255 guibg=#001818 ctermbg=23  gui=none cterm=none
+    highlight Normal              guifg=#eeeeee ctermfg=255 guibg=#002020 ctermbg=23  gui=none cterm=none
     highlight Number              guifg=#eeeeee ctermfg=255                           gui=none cterm=none
     highlight Operator            guifg=#eeeeee ctermfg=255                           gui=none cterm=none
-    highlight PMenu               guifg=#eeeeee ctermfg=255                           gui=none cterm=none
-    highlight PMenuSbar           guifg=#eeeeee ctermfg=255                           gui=none cterm=none
-    highlight PMenuSel            guifg=#eeeeee ctermfg=255                           gui=none cterm=none
-    highlight PMenuThumb          guifg=#eeeeee ctermfg=255                           gui=none cterm=none
+    highlight PMenu               guifg=#dddddd ctermfg=253 guibg=#747678 ctermbg=67  gui=none cterm=none
+    highlight PMenuSbar           guifg=#dddddd ctermfg=253 guibg=#949698 ctermbg=67  gui=none cterm=none
+    highlight PMenuSel            guifg=#88dd88 ctermfg=114 guibg=#a4a6a8 ctermbg=67  gui=none cterm=none
+    highlight PMenuThumb          guifg=#dddddd ctermfg=253 guibg=#c4c6c8 ctermbg=110 gui=none cterm=none
     highlight PreCondit           guifg=#eeeeee ctermfg=255                           gui=none cterm=none
     highlight PreProc             guifg=#eeeeee ctermfg=255                           gui=none cterm=none
     highlight Question            guifg=#eeeeee ctermfg=255                           gui=none cterm=none
