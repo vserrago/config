@@ -50,8 +50,8 @@ set wildmenu    " enhanced command-line completion
 " --visual theme and appearance
 "colorscheme matrix  " preferred colorscheme
 "colorscheme darkblue  " preferred colorscheme
-"colorscheme night_vision  " preferred colorscheme
-colorscheme neverland  " preferred colorscheme
+colorscheme norwaytoday " preferred colorscheme
+"colorscheme neverland  " preferred colorscheme
 
 if has("gui_running")
     " gVim specific
