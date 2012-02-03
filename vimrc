@@ -1,15 +1,15 @@
 " prevent vim from emulating vi
 set nocompatible    " enabled when (g)vimrc is found
 " easier to reach than \
-let mapleader = ","
+let mapleader = "."
 " easier to reach than Esc or Ctrl-[
 "inoremap jk <Esc>
 
 set backspace=start,indent,eol  " make backspace work like 'normal' text editors
 
 " --history
-set history=500    " history of commands and searches
-set undolevels=500 " changes to be remembered
+set history=1000    " history of commands and searches
+set undolevels=1000 " changes to be remembered
 
 " --interface appearance
 syntax enable    " enable syntax highlighting and allow custom highlighting

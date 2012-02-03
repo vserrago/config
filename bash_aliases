@@ -3,6 +3,7 @@
 ###############################################################################
 
 alias apt='aptitude'
+alias awesomerc='vim ~/.config/awesome/rc.lua'
 alias bashrc='vim ~/.bashrc'
 alias cb='cd $OLDPWD'
 alias cu='cd ..'
