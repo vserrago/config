@@ -49,7 +49,7 @@ set wildmenu    " enhanced command-line completion
 
 " --visual theme and appearance
 "colorscheme norwaytoday " preferred colorscheme
-colorscheme neverland  " preferred colorscheme
+colorscheme dw_green  " preferred colorscheme
 
 " force 256 colours (required for xterm and screen-bce $TERMs)
 if &term == "xterm" || &term == "screen-bce"
