@@ -6,9 +6,7 @@
 alias apt='aptitude'
 alias cb='cd $OLDPWD'
 alias cu='cd ..'
-#alias ls='ls -p'
 alias dat='date +%a\ %b\ %d,\ %I:%M\ %p'
-#alias ls='ls -p'
 alias extract='tar -xf'
 alias sourcebash='source ~/.bashrc'
 alias update='sudo aptitude update; sudo aptitude safe-upgrade'
@@ -25,6 +23,8 @@ alias bashrc='vim ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
 alias xsession='vim ~/.xsession'
 
+# Function to change the current working directory (cwd) across multiple shell
+# windows. 
 function cwd()
 {
     if [ $# -eq 1 ] ; then
@@ -33,7 +33,6 @@ function cwd()
         echo $PWD > ~/.cwd
     elif [ $# -eq 0 ] ; then
         #cd $CWD
-        #echo < ~/.cwd | cd
         cd $(cat ~/.cwd)
     fi
 }
