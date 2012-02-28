@@ -41,6 +41,7 @@ ntp
 openjdk-7-jdk
 openssh-server
 pinta
+python3.2
 qt4-qtconfig
 ranger
 rsync
