@@ -20,6 +20,7 @@ alias gitpull='git pull origin master'
 alias aliases='vim ~/.bash_aliases'
 alias awesomerc='vim ~/.config/awesome/rc.lua'
 alias bashrc='vim ~/.bashrc'
+alias dwmconfig='vim ~/dwm/config.h'
 alias vimrc='vim ~/.vimrc'
 alias xsession='vim ~/.xsession'
 
@@ -34,5 +35,7 @@ function cwd()
     elif [ $# -eq 0 ] ; then
         #cd $CWD
         cd $(cat ~/.cwd)
+    else
+        echo "Error: Too many arguments. Did you accidentally add a space somewhere?" > /dev/stderr
     fi
 }
