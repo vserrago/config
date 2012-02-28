@@ -2,15 +2,38 @@
 ##############################CUSTOM ALIASES###################################
 ###############################################################################
 
+# general aliases
 alias apt='aptitude'
-alias awesomerc='vim ~/.config/awesome/rc.lua'
-alias bashrc='vim ~/.bashrc'
 alias cb='cd $OLDPWD'
 alias cu='cd ..'
-alias copyDWM='scp -r /home/valentin/dwm/ scs:'
 #alias ls='ls -p'
 alias dat='date +%a\ %b\ %d,\ %I:%M\ %p'
 #alias ls='ls -p'
 alias extract='tar -xf'
+alias sourcebash='source ~/.bashrc'
+alias update='sudo aptitude update; sudo aptitude safe-upgrade'
+
+# git aliases
+alias gitaddall='git add .; git add -u' #git add -A not available on scs
+alias gitpush='git push origin master'
+alias gitpull='git pull origin master'
+
+# rc shortcuts
+alias aliases='vim ~/.bash_aliases'
+alias awesomerc='vim ~/.config/awesome/rc.lua'
+alias bashrc='vim ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
 alias xsession='vim ~/.xsession'
+
+function cwd()
+{
+    if [ $# -eq 1 ] ; then
+        cd $1
+        #export CWD="$PWD"
+        echo $PWD > ~/.cwd
+    elif [ $# -eq 0 ] ; then
+        #cd $CWD
+        #echo < ~/.cwd | cd
+        cd $(cat ~/.cwd)
+    fi
+}
