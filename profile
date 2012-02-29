@@ -24,3 +24,7 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+if [ -z "$CWD" ]; then
+    export CWD=$HOME
+fi
