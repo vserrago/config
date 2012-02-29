@@ -26,5 +26,5 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 if [ -z "$CWD" ]; then
-    export CWD=$HOME
+    export CWD=$HOME/bin
 fi
