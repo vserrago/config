@@ -29,12 +29,12 @@ alias xsession='vim ~/.xsession'
 function cwd()
 {
     if [ $# -eq 1 ] ; then
-        cd $1
+        cd "$1"
         #export CWD="$PWD"
         echo $PWD > ~/.cwd
     elif [ $# -eq 0 ] ; then
         #cd $CWD
-        cd $(cat ~/.cwd)
+        cd "$(cat ~/.cwd)"
     else
         echo "Error: Too many arguments. Did you accidentally add a space somewhere?" > /dev/stderr
     fi
