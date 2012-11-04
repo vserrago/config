@@ -8,7 +8,7 @@ alias cb='cd $OLDPWD'
 alias cu='cd ..'
 alias dat='date +%a\ %b\ %d,\ %I:%M\ %p'
 alias extract='tar -xf'
-alias link.sh='~/link.sh/link.sh -u ~/congig/link.conf'
+alias link.sh='~/link.sh/link.sh -u ~/config/link.conf'
 alias sourcebash='source ~/.bashrc'
 alias update='sudo aptitude update; sudo aptitude safe-upgrade'
 
