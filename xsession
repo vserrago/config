@@ -12,6 +12,10 @@ elif [ "$HOSTNAME" = "centralcommand" ]; then
     #Turn off bell
     xset b off
 
+    #Turn off the screen sleep function
+    xset -dpms
+    xset s off
+
     #Enable xbindkeys
     #exec xbindkey &
 
