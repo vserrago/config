@@ -1,0 +1,23 @@
+[user]
+	name = Valentin Serrago
+	email = valentinserrago@gmail.com
+[color]
+	ui = true
+[color "diff"]
+	; see 'git help config' /color.diff.<slot> for more options
+	meta = cyan
+	frag = magenta bold
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff
+[alias]
+	amend = commit --amend
+	cmv = commit -v
+	cmva = commit -va
+	lg = log -p --color-words
+	lgg = log --oneline --graph
+	st = status
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
