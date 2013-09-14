@@ -13,11 +13,6 @@ alias linkshexec='~/link.sh/link.sh -u ~/exec/links.conf'
 alias sourcebash='source ~/.bashrc'
 alias update='sudo aptitude update; sudo aptitude safe-upgrade'
 
-# git aliases
-alias gitaddall='git add .; git add -u' #git add -A not available on scs
-alias gitpush='git push origin master'
-alias gitpull='git pull origin master'
-
 # rc shortcuts
 alias aliases='vim ~/.bash_aliases'
 alias awesomerc='vim ~/.config/awesome/rc.lua'
