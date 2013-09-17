@@ -41,5 +41,6 @@ elif [ "$WM" = "dwm" ]; then
     sleep 30
     done &
 
-    exec ~/dwm/launcher.sh
+    #exec ~/dwm/launcher.sh
+    exec ~/git/dwm/dwm
 fi
