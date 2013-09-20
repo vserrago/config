@@ -12,14 +12,17 @@
 [merge]
 	tool = vimdiff
 [alias]
+	adal = add --all
 	amend = commit --amend
+	clearall = !git clean -df && git checkout -- .
 	cmv = commit -v
 	cmva = commit -va
+	discard = checkout -- 
 	lg = log -p --color-words
 	lgg = log --oneline --graph
 	st = status
-    pulom = pull origin master
-    pusom = push origin master
+    	pullom = pull origin master
+    	pushom = push origin master
 [branch "master"]
 	remote = origin
 	merge = refs/heads/master
