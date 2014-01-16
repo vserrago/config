@@ -16,8 +16,15 @@ elif [ "$HOSTNAME" = "centralcommand" ]; then
     xset -dpms
     xset s off
 
-    #Enable xbindkeys
-    #exec xbindkey &
+elif [ "$HOSTNAME" = "beefmeister" ]; then
+    WM=dwm
+
+    #Turn off the screen sleep function
+    xset -dpms
+    xset s off
+
+    #Turn down mouse acceleration to a more reasonable level
+    xinput --set-prop 'Logitech Unifying Device. Wireless PID:101a' 'Device Accel Velocity Scaling' 2
 
 elif [ "$HOSTNAME" = "europa" -o "$HOSTNAME" = "elara" -o "$HOSTNAME" = "metis" -o "$HOSTNAME" = "thebe" ]; then
     WM=dwm
