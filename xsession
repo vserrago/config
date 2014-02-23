@@ -17,7 +17,8 @@ elif [ "$HOSTNAME" = "centralcommand" ]; then
     xset s off
 
 elif [ "$HOSTNAME" = "beefmeister" ]; then
-    WM=dwm
+    #WM=dwm
+    WM=awesome
 
     #Turn off the screen sleep function
     xset -dpms
