@@ -41,8 +41,8 @@ end
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
-editor = os.getenv("EDITOR") or "nano"
+terminal = "urxvt"
+editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -57,16 +57,16 @@ local layouts =
 {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
+    --awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
+    --awful.layout.suit.tile.top,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier
+    --awful.layout.suit.spiral,
+    --awful.layout.suit.spiral.dwindle,
+    --awful.layout.suit.max,
+    --awful.layout.suit.max.fullscreen,
+    --awful.layout.suit.magnifier
 }
 -- }}}
 
@@ -83,7 +83,18 @@ end
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
+    tags[s] = awful.tag({
+    --Tag Name  Tag Number
+        "V",    --1
+        "a",    --2
+        "l",    --3
+        "e",    --4
+        "n",    --5
+        "t",    --6
+        "e",    --7
+        "e",    --8
+        "n"     --9
+    }, s, layouts[2]) --Default layout is the standard tile layout
 end
 -- }}}
 
@@ -110,6 +121,7 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 -- {{{ Wibox
 -- Create a textclock widget
+-- TODO: Set clock to use preferred date format
 mytextclock = awful.widget.textclock()
 
 -- Create a wibox for each screen and add it
@@ -226,7 +238,7 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end),
+    awful.key({ modkey, "Shift"   }, "w", function () mymainmenu:show() end),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
@@ -245,7 +257,7 @@ globalkeys = awful.util.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit),
+    awful.key({ modkey, "Control" }, "q", awesome.quit),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
@@ -258,8 +270,29 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
-    -- Prompt
-    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
+    -- Prompt, replaced by dmenu
+    --awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
+
+    --------------------
+    ----Custom Binds----
+    --------------------
+
+    --FireFox
+    awful.key({ modkey, }, "w", function () awful.util.spawn("firefox") end),
+
+    --Dmenu
+    awful.key({ modkey }, "r",
+        function ()
+            awful.util.spawn("dmenu_run -i -p 'Run Program:' -fn '-*-*-*-*-*-*-*-130-*-*-*-*-*-*' -nb '" ..
+                    beautiful.bg_normal .. "' -nf '" .. beautiful.fg_normal ..
+                    "' -sb '" .. beautiful.bg_focus ..
+                    "' -sf '" .. beautiful.fg_focus .. "'")
+        end),
+
+    ---------------------------
+    ----End of Custom Binds----
+    ---------------------------
+
 
     awful.key({ modkey }, "x",
               function ()
