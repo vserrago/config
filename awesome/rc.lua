@@ -39,6 +39,8 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+--beautiful.init(awful.util.getdir("config") .. "/Da-V-Theme/theme.lua")
+--beautiful.init(awful.util.getdir("config") .. "/Valenthim/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
@@ -122,7 +124,7 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- {{{ Wibox
 -- Create a textclock widget
 -- TODO: Set clock to use preferred date format
-mytextclock = awful.widget.textclock()
+mytextclock = awful.widget.textclock(" %a %b %d, %I:%M %p ")
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -383,6 +385,7 @@ awful.rules.rules = {
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
                      keys = clientkeys,
+                     size_hints_honor = false,
                      buttons = clientbuttons } },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
