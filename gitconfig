@@ -23,6 +23,7 @@
 	st = status
 	pullom = pull origin master
 	pushom = push origin master
+	unstage = reset HEAD
 [branch "master"]
 	remote = origin
 	merge = refs/heads/master
