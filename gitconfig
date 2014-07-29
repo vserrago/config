@@ -16,7 +16,7 @@
 	amend = commit --amend
 	clearall = !git clean -df && git checkout -- .
 	cmv = commit -v
-	cmva = commit -va
+	cmva = !git add --all && git commit -v
 	discard = checkout -- 
 	lg = log -p --color-words
 	lgg = log --oneline --graph
