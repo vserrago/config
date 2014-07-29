@@ -1,10 +1,29 @@
-" prevent vim from emulating vi
-set nocompatible    " enabled when (g)vimrc is found
-" easier to reach than \
-let mapleader = "."
-" easier to reach than Esc or Ctrl-[
-"inoremap jk <Esc>
+" Vimrc
+" =====
+"
+" Valentin Serrago's vimrc
 
+
+" Vundle Initialization
+" =====================
+
+set nocompatible    " Prevents Vim from emulating vi
+filetype off        " Required for Vundle
+set rtp+=~/.vim/bundle/Vundle.vim   " Set runtime path
+call vundle#begin()                 " Initialize Vundle
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
+" Vim Configuration
+" =================
+
+let mapleader = " "             " Use a more accessible key than \
 set backspace=start,indent,eol  " make backspace work like 'normal' text editors
 
 " --history
