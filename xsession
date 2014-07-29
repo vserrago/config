@@ -25,7 +25,10 @@ elif [ "$HOSTNAME" = "beefmeister" ]; then
     xset s off
 
     #Turn down mouse acceleration to a more reasonable level
-    xinput --set-prop 'Logitech Unifying Device. Wireless PID:101a' 'Device Accel Velocity Scaling' 2
+    #xinput --set-prop 'Logitech Unifying Device. Wireless PID:101a' 'Device Accel Velocity Scaling' 2
+
+    #Disable mouse acceleration
+    xset m 0 0
 
 elif [ "$HOSTNAME" = "europa" -o "$HOSTNAME" = "elara" -o "$HOSTNAME" = "metis" -o "$HOSTNAME" = "thebe" ]; then
     WM=dwm
