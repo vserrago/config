@@ -3,7 +3,6 @@
 "
 " Valentin Serrago's vimrc
 
-
 " Vundle Initialization
 " =====================
 
@@ -15,7 +14,12 @@ call vundle#begin()                 " Initialize Vundle
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" Plugins
+" Colour Schemes
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'vim-scripts/Gummybears'
+Plugin 'trapd00r/neverland-vim-theme'
+
+" Functional Plugins
 Plugin 'kien/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
@@ -58,19 +62,11 @@ set noerrorbells " no bell for error messages
 set visualbell   " use whatever 't_vb' is set to as a bell
 set t_vb=        " set to nothing (disable)
 
-" restore 't_vb' since it is reset after the GUI starts
-"if has("gui_running")
-"    augroup disable_gui_visualbell
-"        autocmd!
-"        autocmd GUIEnter * set t_vb=
-"    augroup end
-"endif
-
 " --command-line completion
 set wildmenu    " enhanced command-line completion
 
 " --visual theme and appearance
-colorscheme neverland  " preferred colorscheme
+colorscheme jellybeans
 
 " force 256 colours (required for xterm and screen-bce $TERMs)
 if &term == "xterm" || &term == "screen-bce"
