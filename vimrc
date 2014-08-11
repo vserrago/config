@@ -15,6 +15,7 @@ call vundle#begin()                 " Initialize Vundle
 Plugin 'gmarik/Vundle.vim'
 
 " Colour Schemes
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'trapd00r/neverland-vim-theme'
 Plugin 'vim-scripts/Gummybears'
@@ -115,6 +116,8 @@ endif
 " Key Bindings
 " ============
 
+" Escape
+  
 " Hardcore mode activated
 noremap <up> <nop>
 noremap <down> <nop>
@@ -131,6 +134,10 @@ nnoremap <C-l> <C-w>l
 " toggle paste and show current value ('pastetoggle' doesn't)
 nnoremap <Leader>p :set paste! paste?<CR>
 
+" Insert newline below
+nnoremap <Leader>o o<esc>
+" Insert newline above cursor
+nnoremap <Leader>O O<esc>
 
 " Sort lines
 vnoremap <leader>s :sort<cr>
