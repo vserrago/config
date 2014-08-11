@@ -16,8 +16,8 @@ Plugin 'gmarik/Vundle.vim'
 
 " Colour Schemes
 Plugin 'nanotech/jellybeans.vim'
-Plugin 'vim-scripts/Gummybears'
 Plugin 'trapd00r/neverland-vim-theme'
+Plugin 'vim-scripts/Gummybears'
 
 " Functional Plugins
 Plugin 'kien/ctrlp.vim'
@@ -38,29 +38,29 @@ set history=1000    " history of commands and searches
 set undolevels=1000 " changes to be remembered
 
 " --interface appearance
-syntax enable    " enable syntax highlighting and allow custom highlighting
-set title        " set title to filename and modification status
+set laststatus=2 " always show status line
 set number       " show line numbers
 set ruler        " always show current position
 set showcmd      " show the command being typed
 set showmode     " show current mode (insert, visual, etc.)
-set laststatus=2 " always show status line
+set title        " set title to filename and modification status
+syntax enable    " enable syntax highlighting and allow custom highlighting
 
 " --searching
-set ignorecase " ignore case when searching
-set smartcase  " case sensitive only when capital letter in expression
 set hlsearch   " highlight search terms
+set ignorecase " ignore case when searching
 set incsearch  " show matches as they are found
+set smartcase  " case sensitive only when capital letter in expression
 
 " --feedback
-set showmatch   " show matching braces when typed or under cursor
 set matchtime=2 " length of time for 'showmatch'
+set showmatch   " show matching braces when typed or under cursor
 
 " --redrawing / warnings
 set lazyredraw   " don't redraw screen when executing macros
 set noerrorbells " no bell for error messages
-set visualbell   " use whatever 't_vb' is set to as a bell
 set t_vb=        " set to nothing (disable)
+set visualbell   " use whatever 't_vb' is set to as a bell
 
 " --command-line completion
 set wildmenu    " enhanced command-line completion
@@ -87,16 +87,16 @@ set encoding=utf-8                             " encoding used within vim
 set fileencodings=ucs-bom,utf-8,default,latin1 " encodings to try when editing a file
 
 " --buffer management
-set hidden    " allow buffer to be changed without writing to disk
 set autoread  " update file when externally modified
+set hidden    " allow buffer to be changed without writing to disk
 
 " --indenting
-set fileformats=unix,dos,mac " try recognizing line endings in this order
-set tabstop=4                " width of a tab character in spaces
-set softtabstop=4            " defines number of spaces for when adding/removing tabs
-set shiftwidth=4             " number of spaces to use for autoindent
-set expandtab                " use spaces instead of tab characters; to insert real tab, use <C-v><Tab>
 set cindent                  " automatic indenting; see ':h C-indenting' for comparison
+set expandtab                " use spaces instead of tab characters; to insert real tab, use <C-v><Tab>
+set fileformats=unix,dos,mac " try recognizing line endings in this order
+set shiftwidth=4             " number of spaces to use for autoindent
+set softtabstop=4            " defines number of spaces for when adding/removing tabs
+set tabstop=4                " width of a tab character in spaces
 
 " --copying / pasting
 " allow vim commands to copy to system clipboard (*)
