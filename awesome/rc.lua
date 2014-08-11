@@ -227,8 +227,8 @@ root.buttons(awful.util.table.join(
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
     -- Layout Navigation
-    awful.key({ modkey,           }, "h",       awful.tag.viewprev       ),
-    awful.key({ modkey,           }, "l",       awful.tag.viewnext       ),
+    awful.key({ modkey,           }, "h",       awful.tag.viewprev),
+    awful.key({ modkey,           }, "l",       awful.tag.viewnext),
     awful.key({ modkey, "Shift"   }, "h", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Shift"   }, "l", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "Escape",  awful.tag.history.restore),
@@ -390,7 +390,8 @@ awful.rules.rules = {
                      focus = awful.client.focus.filter,
                      keys = clientkeys,
                      size_hints_honor = false,
-                     buttons = clientbuttons } },
+                     buttons = clientbuttons },
+                 callback = awful.client.setslave },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
     { rule = { class = "pinentry" },
