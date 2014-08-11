@@ -76,12 +76,6 @@ endif
 " --movement / navigation
 set scrolloff=5 " scrolling starts 5 lines before window border
 
-" easier window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
 " --mouse input
 "set mouse=a " enable mouse support
 
@@ -117,7 +111,29 @@ if has("unix") && v:version >= 703
     set clipboard+=unnamedplus
 endif
 
+
+" Key Bindings
+" ============
+
+" Easier window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 " set paste to prevent unexpected code formatting when pasting text
 " toggle paste and show current value ('pastetoggle' doesn't)
 nnoremap <Leader>p :set paste! paste?<CR>
-"set pastetoggle=<Leader>p
+
+
+" Sort lines
+vnoremap <leader>s :sort<cr>
+" Sort paragraph
+nnoremap <leader>sp vip:sort<cr>
+
+" Current word to uppercase
+nnoremap <leader>u viwU
+
+" Vimrc editing commands
+nnoremap <leader>vrc :split $MYVIMRC<cr>
+nnoremap <leader>vvrc :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
