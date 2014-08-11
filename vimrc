@@ -115,12 +115,19 @@ endif
 " Key Bindings
 " ============
 
+" Hardcore mode activated
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
+
 " Easier window navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-" set paste to prevent unexpected code formatting when pasting text
+
+" Set paste to prevent unexpected code formatting when pasting text
 " toggle paste and show current value ('pastetoggle' doesn't)
 nnoremap <Leader>p :set paste! paste?<CR>
 
@@ -130,8 +137,10 @@ vnoremap <leader>s :sort<cr>
 " Sort paragraph
 nnoremap <leader>sp vip:sort<cr>
 
+" Current letter to uppercase
+nnoremap <leader>ul vU
 " Current word to uppercase
-nnoremap <leader>u viwU
+nnoremap <leader>uw viwU
 
 " Vimrc editing commands
 nnoremap <leader>vrc :split $MYVIMRC<cr>
