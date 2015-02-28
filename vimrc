@@ -254,9 +254,6 @@ nnoremap <leader>y ggVGy``
 " Toggle wrap
 nnoremap <leader>w :set wrap! wrap?<cr>
 
-"Toggle Tabs/Spaces
-nnoremap <leader><tab> :set expandtab!<cr>
-
 " Vimrc editing commands
 nnoremap <leader>vrc :e $MYVIMRC<cr>
 nnoremap <leader>vhrc :split $MYVIMRC<cr>
