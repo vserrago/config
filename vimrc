@@ -3,6 +3,7 @@
 "
 " Valentin Serrago's vimrc
 
+
 " Vundle Initialization
 " =====================
 
@@ -11,7 +12,7 @@ filetype off        " Required for Vundle
 set rtp+=~/.vim/bundle/Vundle.vim   " Set runtime path
 call vundle#begin()                 " Initialize Vundle
 
-" let Vundle manage Vundle, required
+" Let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
 " Colour Schemes
@@ -40,11 +41,11 @@ filetype plugin indent on    " required
 let mapleader = " "             " Use a more accessible key than \
 set backspace=start,indent,eol  " make backspace work like 'normal' text editors
 
-" --history
+" History
 set history=1000    " history of commands and searches
 set undolevels=1000 " changes to be remembered
 
-" --interface appearance
+" Interface appearance
 set laststatus=2 " always show status line
 set number       " show line numbers
 set ruler        " always show current position
@@ -53,23 +54,23 @@ set showmode     " show current mode (insert, visual, etc.)
 set title        " set title to filename and modification status
 syntax enable    " enable syntax highlighting and allow custom highlighting
 
-" --searching
+" Searching
 set hlsearch   " highlight search terms
 set ignorecase " ignore case when searching
 set incsearch  " show matches as they are found
 set smartcase  " case sensitive only when capital letter in expression
 
-" --feedback
+" Feedback
 set matchtime=2 " length of time for 'showmatch'
 set showmatch   " show matching braces when typed or under cursor
 
-" --redrawing / warnings
+" Redrawing / warnings
 set lazyredraw   " don't redraw screen when executing macros
 set noerrorbells " no bell for error messages
 set t_vb=        " set to nothing (disable)
 set visualbell   " use whatever 't_vb' is set to as a bell
 
-" restore 't_vb' since it is reset after the GUI starts
+" Restore 't_vb' since it is reset after the GUI starts
 if has("gui_running")
     augroup disable_gui_visualbell
         autocmd!
@@ -79,31 +80,31 @@ if has("gui_running")
     set guifont=Consolas    "Use a font that works with italics
 endif
 
-" --command-line completion
+" Command-line completion
 set wildmenu    " enhanced command-line completion
 
-" --visual theme and appearance
+" Visual theme and appearance
 colorscheme jellybeans
 
-" force 256 colours (required for xterm and screen-bce $TERMs)
+" Force 256 colours (required for xterm and screen-bce $TERMs)
 if &term == "xterm" || &term == "screen-bce"
     set t_Co=256
 endif
 
-" --movement / navigation
+" Movement / navigation
 set scrolloff=5 " scrolling starts 5 lines before window border
 
-" --mouse input
-"set mouse=a " enable mouse support
+" Mouse input
+" set mouse=a " enable mouse support
 
-" --filetype detection
+" Filetype detection
 filetype plugin indent on   " let vim detect filetype and load appropriate scripts
 
-" --character encoding
+" Character encoding
 set encoding=utf-8                             " encoding used within vim
 set fileencodings=ucs-bom,utf-8,default,latin1 " encodings to try when editing a file
 
-" --buffer management
+" Buffer management
 set autoread            " update file when externally modified
 set hidden              " allow buffer to be changed without writing to disk
 set switchbuf=usetab,newtab    " Set buffers in new instances to open in tabs
@@ -112,7 +113,7 @@ set switchbuf=usetab,newtab    " Set buffers in new instances to open in tabs
 set backupdir=~/.vim/backup
 set directory=~/.vim/swap
 
-" --indenting
+" Indenting
 set cindent                  " automatic indenting; see ':h C-indenting' for comparison
 set expandtab                " use spaces instead of tab characters; to insert real tab, use <C-v><Tab>
 set fileformats=unix,dos,mac " try recognizing line endings in this order
@@ -121,33 +122,40 @@ set softtabstop=4            " defines number of spaces for when adding/removing
 set tabstop=4                " width of a tab character in spaces
 set list                     " Show tabs and things
 
-" --line wrapping
+" Line wrapping
 set nowrap
 
 " Window spawning
 set splitbelow
 set splitright
 
-" --copying / pasting
-" allow vim commands to copy to system clipboard (*)
+" Copying / pasting
+" Allow vim commands to copy to system clipboard (*)
 " for X11:
 "   + is the clipboard register (Ctrl-{c,v})
 "   * is the selection register (middle click, Shift-Insert)
 
 set clipboard=unnamed
 
-" use clipboard register in linux when supported
+" Use clipboard register in linux when supported
 if has("unix") && v:version >= 703
     set clipboard+=unnamedplus
 endif
 
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
+
 " Auto Commands
 " =============
 
 " Force html files to use xml highlighting
 au BufRead,BufNewFile *.html set filetype=xml
+"
+" Source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost $MYVIMRC source $MYVIMRC
+endif
+
 
 " Plugin Config
 " =============
@@ -157,6 +165,7 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 " Vim-Json
 let g:vim_json_syntax_conceal = 0
+
 
 " Key Bindings
 " ============
@@ -196,16 +205,25 @@ nnoremap <S-tab> :tabprev<cr>
 nnoremap <C-tab> :tabnew<cr>
 
 " Set paste to prevent unexpected code formatting when pasting text
-" toggle paste and show current value ('pastetoggle' doesn't)
+" Toggle paste and show current value ('pastetoggle' doesn't)
 nnoremap <Leader>p :set paste! paste?<CR>
 
-"Make Y consistent with other commands (D, C, etc)
+" Make Y consistent with other commands (D, C, etc)
 nnoremap Y y$
+
+" Q repeats last macro
+nnoremap Q @@
+
+" Have K mimic J
+nnoremap K kJ
 
 " Insert newline below
 nnoremap <Leader>o o<esc>
 " Insert newline above cursor
 nnoremap <Leader>O O<esc>
+
+" Toggle tab insertion
+nnoremap <leader><tab> :set expandtab! expandtab?<cr>
 
 " Trim
 nnoremap <leader>tr :%s/\s\+$//g<cr>
@@ -218,11 +236,14 @@ nnoremap <leader>sp vip:sort<cr>
 " Current word to uppercase
 nnoremap <leader>uw viwU
 
-" Yank entire buffer
-nnoremap <leader>ya ggVGy
+" Format entire buffer
+nnoremap <leader>= gg=G``
 
-"Toggle wrap
-nnoremap <leader>w :set wrap!<cr>
+" Yank entire buffer
+nnoremap <leader>y ggVGy``
+
+" Toggle wrap
+nnoremap <leader>w :set wrap! wrap?<cr>
 
 " Vimrc editing commands
 nnoremap <leader>vrc :e $MYVIMRC<cr>
