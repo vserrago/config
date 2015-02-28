@@ -19,15 +19,18 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'trapd00r/neverland-vim-theme'
+Plugin 'MaxSt/FlatColor'
 Plugin 'vim-scripts/Gummybears'
 
 " Functional Plugins
 Plugin 'elzr/vim-json'
+Plugin 'junegunn/vim-easy-align'
 Plugin 'kien/ctrlp.vim'
 Plugin 'msanders/snipmate.vim.git'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-jdaddy'
 Plugin 'tpope/vim-surround'
 
 " All of your Plugins must be added before the following line
@@ -63,6 +66,7 @@ set smartcase  " case sensitive only when capital letter in expression
 " Feedback
 set matchtime=2 " length of time for 'showmatch'
 set showmatch   " show matching braces when typed or under cursor
+set cursorline  " Highlight the line that the cursor is on
 
 " Redrawing / warnings
 set lazyredraw   " don't redraw screen when executing macros
@@ -166,6 +170,11 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 " Vim-Json
 let g:vim_json_syntax_conceal = 0
 
+" Easy-Align
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " Key Bindings
 " ============
@@ -245,8 +254,12 @@ nnoremap <leader>y ggVGy``
 " Toggle wrap
 nnoremap <leader>w :set wrap! wrap?<cr>
 
+"Toggle Tabs/Spaces
+nnoremap <leader><tab> :set expandtab!<cr>
+
 " Vimrc editing commands
 nnoremap <leader>vrc :e $MYVIMRC<cr>
 nnoremap <leader>vhrc :split $MYVIMRC<cr>
 nnoremap <leader>vvrc :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
