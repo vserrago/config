@@ -125,6 +125,8 @@ set shiftwidth=4             " number of spaces to use for autoindent
 set softtabstop=4            " defines number of spaces for when adding/removing tabs
 set tabstop=4                " width of a tab character in spaces
 set list                     " Show tabs and things
+set listchars=tab:>-,eol:$   " Display tabs as ">-", ">---", etc, and Eol as $
+
 
 " Line wrapping
 set nowrap
@@ -249,7 +251,7 @@ nnoremap <leader>uw viwU
 nnoremap <leader>= gg=G``
 
 " Yank entire buffer
-nnoremap <leader>y ggVGy``
+nnoremap <leader>ya ggVGy``
 
 " Toggle wrap
 nnoremap <leader>w :set wrap! wrap?<cr>
