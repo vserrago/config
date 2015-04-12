@@ -114,7 +114,13 @@ set hidden              " allow buffer to be changed without writing to disk
 set switchbuf=usetab,newtab    " Set buffers in new instances to open in tabs
 
 " Store backup files in a central location
+if !isdirectory($HOME . "/.vim/backup")
+    call mkdir($HOME . "/.vim/backup", "p")
+endif
 set backupdir=~/.vim/backup
+if !isdirectory($HOME . "/.vim/swap")
+    call mkdir($HOME . "/.vim/swap", "p")
+endif
 set directory=~/.vim/swap
 
 " Indenting
