@@ -247,7 +247,4 @@ nnoremap <leader>w :set wrap! wrap?<cr>
 
 " Vimrc editing commands
 nnoremap <leader>vrc :e $MYVIMRC<cr>
-nnoremap <leader>vhrc :split $MYVIMRC<cr>
-nnoremap <leader>vvrc :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
 
