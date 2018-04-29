@@ -8,6 +8,9 @@
 " =======
 call plug#begin('~/.vim/bundle')
 
+" Sensible Defaults
+Plug 'tpope/vim-sensible'
+
 " Colour Schemes
 Plug 'altercation/vim-colors-solarized'
 Plug 'nanotech/jellybeans.vim'
@@ -32,25 +35,20 @@ call plug#end()
 " =================
 
 let mapleader = " "             " Use a more accessible key than \
-set backspace=start,indent,eol  " make backspace work like 'normal' text editors
 
 " History
 set history=1000    " history of commands and searches
 set undolevels=1000 " changes to be remembered
 
 " Interface appearance
-set laststatus=2 " always show status line
 set number       " show line numbers
-set ruler        " always show current position
 set showcmd      " show the command being typed
 set showmode     " show current mode (insert, visual, etc.)
 set title        " set title to filename and modification status
-syntax enable    " enable syntax highlighting and allow custom highlighting
 
 " Searching
 set hlsearch   " highlight search terms
 set ignorecase " ignore case when searching
-set incsearch  " show matches as they are found
 set smartcase  " case sensitive only when capital letter in expression
 
 " Feedback
@@ -68,9 +66,6 @@ if has("gui_running")
     set guifont=Consolas    "Use a font that works with italics
 endif
 
-" Command-line completion
-set wildmenu    " enhanced command-line completion
-
 " Visual theme and appearance
 colorscheme jellybeans
 
@@ -85,15 +80,11 @@ set scrolloff=5 " scrolling starts 5 lines before window border
 " Mouse input
 " set mouse=a " enable mouse support
 
-" Filetype detection
-filetype plugin indent on   " let vim detect filetype and load appropriate scripts
-
 " Character encoding
 set encoding=utf-8                             " encoding used within vim
 set fileencodings=ucs-bom,utf-8,default,latin1 " encodings to try when editing a file
 
 " Buffer management
-set autoread            " update file when externally modified
 set hidden              " allow buffer to be changed without writing to disk
 set switchbuf=usetab,newtab    " Set buffers in new instances to open in tabs
 
