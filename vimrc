@@ -21,7 +21,6 @@ Plug 'vim-scripts/Gummybears'
 " Functional Plugins
 Plug 'elzr/vim-json'
 Plug 'junegunn/vim-easy-align'
-Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-abolish'
@@ -158,9 +157,6 @@ endif
 
 " Plugin Config
 " =============
-
-" Ctrl-P
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 " Vim-Json
 let g:vim_json_syntax_conceal = 0
