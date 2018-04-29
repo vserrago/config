@@ -3,6 +3,12 @@
 "
 " Valentin Serrago's vimrc
 
+" Automatically install plugin manager
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 " Plugins
 " =======
@@ -166,6 +172,7 @@ let g:vim_json_syntax_conceal = 0
 vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
 
 " Key Bindings
 " ============
