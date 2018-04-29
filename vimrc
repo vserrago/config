@@ -64,13 +64,7 @@ set noerrorbells " no bell for error messages
 set t_vb=        " set to nothing (disable)
 set visualbell   " use whatever 't_vb' is set to as a bell
 
-" Restore 't_vb' since it is reset after the GUI starts
 if has("gui_running")
-    augroup disable_gui_visualbell
-        autocmd!
-        autocmd GUIEnter * set t_vb=
-    augroup end
-
     set guifont=Consolas    "Use a font that works with italics
 endif
 
@@ -149,15 +143,27 @@ set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
 " Auto Commands
 " =============
-
-" Force html files to use xml highlighting
-au BufRead,BufNewFile *.html set filetype=xml
-"
-" Source the vimrc file after saving it
 if has("autocmd")
-  autocmd bufwritepost $MYVIMRC source $MYVIMRC
-endif
+    " Force html files to use xml highlighting
+    augroup HtmlFileSyntax
+        autocmd!
+        autocmd BufRead,BufNewFile *.html set filetype=xml
+    augroup end
 
+    " Source the vimrc file after saving it
+    augroup SourceVimrcOnSave
+        autocmd!
+        autocmd! BufWritePost $MYVIMRC source $MYVIMRC
+    augroup end
+
+    " Restore 't_vb' since it is reset after the GUI starts
+    if has("gui_running")
+        augroup DisableGuiVisualBell
+            autocmd!
+            autocmd GUIEnter * set t_vb=
+        augroup end
+    endif
+endif
 
 " Plugin Config
 " =============
