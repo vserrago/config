@@ -4,38 +4,28 @@
 " Valentin Serrago's vimrc
 
 
-" Vundle Initialization
-" =====================
-
-set nocompatible    " Prevents Vim from emulating vi
-filetype off        " Required for Vundle
-set rtp+=~/.vim/bundle/Vundle.vim   " Set runtime path
-call vundle#begin()                 " Initialize Vundle
-
-" Let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" Plugins
+" =======
+call plug#begin('~/.vim/bundle')
 
 " Colour Schemes
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'trapd00r/neverland-vim-theme'
-Plugin 'MaxSt/FlatColor'
-Plugin 'vim-scripts/Gummybears'
+Plug 'altercation/vim-colors-solarized'
+Plug 'nanotech/jellybeans.vim'
+Plug 'trapd00r/neverland-vim-theme'
+Plug 'MaxSt/FlatColor'
+Plug 'vim-scripts/Gummybears'
 
 " Functional Plugins
-Plugin 'elzr/vim-json'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'kien/ctrlp.vim'
-Plugin 'msanders/snipmate.vim.git'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-jdaddy'
-Plugin 'tpope/vim-surround'
+Plug 'elzr/vim-json'
+Plug 'junegunn/vim-easy-align'
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-jdaddy'
+Plug 'tpope/vim-surround'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
 
 
 " Vim Configuration
