@@ -27,6 +27,7 @@ Plug 'vim-scripts/Gummybears'
 " Functional Plugins
 Plug 'elzr/vim-json'
 Plug 'junegunn/vim-easy-align'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-abolish'
