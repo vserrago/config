@@ -237,6 +237,9 @@ nnoremap <leader><tab> :set expandtab! expandtab?<cr>
 " Trim
 nnoremap <leader>tr :%s/\s\+$//g<cr>
 
+" Netrw
+nnoremap <leader>e :Explore<cr>
+
 " Sort lines
 vnoremap <leader>s :sort<cr>
 " Sort paragraph
