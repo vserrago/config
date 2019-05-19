@@ -109,9 +109,9 @@ set directory=~/.vim/swap
 set cindent                  " automatic indenting; see ':h C-indenting' for comparison
 set expandtab                " use spaces instead of tab characters; to insert real tab, use <C-v><Tab>
 set fileformats=unix,dos,mac " try recognizing line endings in this order
-set shiftwidth=4             " number of spaces to use for autoindent
-set softtabstop=4            " defines number of spaces for when adding/removing tabs
-set tabstop=4                " width of a tab character in spaces
+set shiftwidth=2             " number of spaces to use for autoindent
+set softtabstop=2            " defines number of spaces for when adding/removing tabs
+set tabstop=2                " width of a tab character in spaces
 set list                     " Show tabs and things
 set listchars=tab:>-,eol:$   " Display tabs as ">-", ">---", etc, and Eol as $
 
