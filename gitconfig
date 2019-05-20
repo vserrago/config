@@ -23,3 +23,5 @@
 	unstage = reset HEAD
 [commit]
 	verbose = true
+[push]
+	default = current
