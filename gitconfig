@@ -21,3 +21,5 @@
 	lgg = log --oneline --graph
 	st = status
 	unstage = reset HEAD
+[commit]
+	verbose = true
