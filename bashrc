@@ -71,40 +71,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-#Settings based on host
-#if [ "$HOSTNAME" = "oldreliable" ]
-#then
-#    #Nothing yet
-#
-#elif [ "$HOSTNAME" = "centralcommand" ]
-#then
-#    #Nothing yet
-#
-#el
-if [ "$HOSTNAME" = "europa" -o "$HOSTNAME" = "elara" -o "$HOSTNAME" = "metis" -o "$HOSTNAME" = "thebe" ]
-then
-
-    #Set $TERM to something recognizable when in urxvt
-    if [ "$TERM" = "xterm" -a -e /usr/share/terminfo/x/xterm-256color ]
-    then
-        TERM=xterm-256color
-    #Putty
-    elif [ "$TERM" = "vt100" -a -e /usr/share/terminfo/x/xterm-256color ]
-    then
-        TERM=xterm-256color
-    #Urxvt
-    elif [ "$TERM" = "rxvt-unicode-256color" -a ! -e /usr/share/terminfo/r/rxvt-unicode-256color ]
-    then
-        TERM=xterm-256color
-    fi
-
-    # Load aliases unique to scs
-    if [ -f ~/.scs_aliases ]; then
-        . ~/.scs_aliases
-    fi
-fi
-
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
