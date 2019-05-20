@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  vars:
+    config_base_path: "{{ playbook_dir }}"
+    target_home: "/home/{{ target_user }}"
+    backup_dir: "{{ target_home }}/.config-backup"
+  tasks:
+    - name: Install Dotfile Configuration
+      include_tasks:
+        file: install-config.yml
+        apply:
+          vars:
+            source_path: "{{ config_base_path }}/{{ item.file }}"
+            destination_path: "{{ target_home }}/.{{ item.file }}"
+            backup_dir: "{{ backup_dir }}"
+      loop:
+        - { file: 'bashrc' }

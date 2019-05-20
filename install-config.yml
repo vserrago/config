@@ -1,0 +1,12 @@
+---
+- name: See if original file exists
+  stat:
+    path: "{{ destination_path }}"
+  register: original
+
+- set_fact:
+    backup_required: "{{ original.stat.exists and not original.stat.islnk }}"
+- debug:
+    msg: "{{ destination_path }} needs to be backed up"
+  when: "{{ backup_required }}"
+
