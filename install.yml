@@ -19,6 +19,7 @@
         - { file: 'dircolors' }
         - { file: 'gitconfig' }
         - { file: 'profile' }
+        - { file: 'tmux.conf' }
         - { file: 'vimrc' }
         - { file: 'xinitrc' }
         - { file: 'xsession' }
