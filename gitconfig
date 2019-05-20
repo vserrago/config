@@ -14,16 +14,10 @@
 [alias]
 	adal = add --all
 	amend = commit --amend
-	clearall = !git clean -df && git checkout -- .
 	cmv = commit -v
 	cmva = !git add --all && git commit -v
-	discard = checkout -- 
+	discard = checkout --
 	lg = log -p --color-words
 	lgg = log --oneline --graph
 	st = status
-	pullom = pull origin master
-	pushom = push origin master
 	unstage = reset HEAD
-[branch "master"]
-	remote = origin
-	merge = refs/heads/master
