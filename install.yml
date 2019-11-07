@@ -18,6 +18,7 @@
         - { file: 'bashrc' }
         - { file: 'dircolors' }
         - { file: 'gitconfig' }
+        - { file: 'inputrc' }
         - { file: 'profile' }
         - { file: 'tmux.conf' }
         - { file: 'vimrc' }

@@ -1,0 +1,29 @@
+# ~/.inputrc
+# The configuration file for readline(3). NOTE: This configuration file is used
+# by any application that uses using readline, not just bash.
+
+# No bell. Not now, not ever.
+set bell-style none
+
+# Bash-specific configuration
+$if bash
+  # Enable vim-like bindings by default
+  set editing-mode vi
+
+  # Better looking vi mode prompts
+  set show-mode-in-prompt on
+  set vi-cmd-mode-string [n]
+  set vi-ins-mode-string [i]
+
+  # Common prefix of possible completions is coloured differently
+  set colored-completion-prefix on
+  # Files in auto-compete are colour-coded like in ls
+  set colored-stats on
+
+  # Case insensitive path completion
+  set completion-ignore-case on
+  # Spacer-insensitive ('-' or '_') path completion
+  set completion-map-case on
+  # Show dotfiles (ie .foo) in path completion
+  set match-hidden-files on
+$endif
