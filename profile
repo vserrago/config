@@ -12,19 +12,13 @@
 #stty erase 
 stty erase 
 
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
-fi
-
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-if [ -z "$CWD" ]; then
-    export CWD=$HOME/bin
+# Include machine-local configuration, if needed. For configuration I would not
+# want to version in this git repository.
+if [ -f "$HOME/.profile_local" ]; then
+  . "$HOME/.profile_local"
 fi
