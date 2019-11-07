@@ -14,7 +14,6 @@
               dest: "{{ target_home }}/.{{ item.file }}"
             backup_dir: "{{ target_home }}/.config-backup"
       loop:
-        - { file: 'bash_aliases' }
         - { file: 'bashrc' }
         - { file: 'dircolors' }
         - { file: 'gitconfig' }

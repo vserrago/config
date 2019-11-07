@@ -1,33 +1,51 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# ~/.bashrc
+# The individual per-interactive-shell startup file
+
+# From bash(1):
+# When an interactive shell that is not a login shell is started, bash reads
+# and executes commands from ~/.bashrc, if that file exists. This may be
+# inhibited by using the --norc option. The --rcfile file option will force
+# bash to read and execute commands from file instead of ~/.bashrc
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-PS1='\u@\h:\W\$ '
+
+### History ###
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
 HISTCONTROL=$HISTCONTROL${HISTCONTROL+:}ignoredups
 # ... or force ignoredups and ignorespace
-HISTCONTROL=ignoreboth
+HISTCONTROL="erasedups;ignoreboth"
 # set history size by lines
-HISTSIZE=1000
+HISTSIZE=20000
+
+
+
+### General Shell Options ###
 
 # append to the history file, don't overwrite it
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+# Save all lines of a multi-line command in the same entry
+shopt -s cmdhist
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
+# Update the values of LINES and COLUMNS after each command.
 shopt -s checkwinsize
 
+# If set, and readline is being used, bash will not attempt to search the PATH
+# for possible completions when completion is attempted on an empty line.
 shopt -s no_empty_cmd_completion
 
-# make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+# Use "**" in pathname expansion, eg /foo/**/bar
+shopt -s globstar
+# Case-insensitive pathname expansion
+shopt -s nocaseglob
+
+# Shell Prompts
+PS1='\u@\h:\W\$ '
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
@@ -71,6 +89,35 @@ xterm*|rxvt*)
     ;;
 esac
 
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
+### Aliases ###
+
+# RC Shortcuts
+alias bashrc='vim ~/.bashrc'
+alias inputrc='vim ~/.inputrc'
+alias ssh-config='vim ~/.ssh/config'
+alias vimrc='vim ~/.vimrc'
+alias xsession='vim ~/.xsession'
+
+# Quick Reloading
+alias reload-bashrc='. ~/.bashrc'
+alias reload-bash-profile='. ~/.profile'
+alias reload-inputrc='bind -f ~/.inputrc'
+alias reload-profile='. ~/.profile'
+
+# Aliases for ls
+alias ll='ls -l'
+alias lh='ls -lh'
+alias la='ls -A'
+alias l='ls -CF'
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -83,24 +130,10 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -l'
-alias lh='ls -lh'
-alias la='ls -A'
-alias l='ls -CF'
+### Other Files ###
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
+# Include machine-local configuration, if needed. For configuration I would not
+# want to version in this git repository.
+if [ -f "$HOME/.bashrc_local" ]; then
+  . "$HOME/.bashrc_local"
 fi
