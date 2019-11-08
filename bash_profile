@@ -1,5 +1,5 @@
 # Start with shell-agnositic profile
-if [ -f "$HOME/.profile"]; then
+if [ -f "$HOME/.profile" ]; then
   . "$HOME/.profile"
 fi
 
