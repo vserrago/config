@@ -46,9 +46,7 @@ shopt -s nocaseglob
 
 ### Shell Prompt ###
 function set_ps1() {
-  # ANSI Colour Codes
-
-  # Standard Colours
+  # Standard ANSI Colour Codes
   local blue='\[\033[00;34m\]'
   local cyan='\[\033[00;36m\]'
   local green='\[\033[00;32m\]'
@@ -57,7 +55,7 @@ function set_ps1() {
   local white='\[\033[01;37m\]'
   local yellow='\[\033[00;33m\]'
 
-  # Light Colours
+  # Light ANSI Colour Codes
   local l_blue='\[\033[01;34m\]'
   local l_cyan='\[\033[01;36m\]'
   local l_gray='\[\033[00;37m\]'
@@ -66,9 +64,20 @@ function set_ps1() {
   local l_red='\[\033[01;31m\]'
   local l_yellow='\[\033[01;33m\]'
 
+  # The "end of colour" code
   local end='\[\033[0m\]'
 
-  echo -n "${l_gray}\d \T: [J: \j] [C/H: \#/\!]\n ${green}\u${end}${l_gray}@${cyan}\h${l_gray}:${yellow}\w${end}\$"
+  # Line 1 Format:
+  # <Date>: [J: <Job Count>] [C/H: <Command #>/<History #>]
+  local line_1="${l_gray}\d \T: [J: \j] [C/H: \#/\!]${end}"
+
+  # Line 2 Format:
+  # <User>@<Host>:<Working Dir><Prompt Char (#/$)>
+  local line_2="${green}\u${end}${l_gray}@${cyan}\h${l_gray}:${yellow}\w${end}\$"
+
+  # Adding a space after the newline gives a space between the bash vi mode
+  # string and the second line of the prompt.
+  echo -n "${line_1}\n ${line_2}"
 }
 
 PS1="$(set_ps1)"
