@@ -8,8 +8,7 @@
 # bash to read and execute commands from file instead of ~/.bashrc
 
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
-
+[[ $- != *i* ]] && return
 
 ### History ###
 
