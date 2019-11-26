@@ -10,26 +10,42 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+
 ### History ###
 
-# don't put duplicate lines in the history. See bash(1) for more options
-# don't overwrite GNU Midnight Commander's setting of `ignorespace'.
-HISTCONTROL=$HISTCONTROL${HISTCONTROL+:}ignoredups
-# ... or force ignoredups and ignorespace
-HISTCONTROL="erasedups;ignoreboth"
-# set history size by lines
+# Don't add to the history either duplicated commands, or those startin with a
+# space. Erase duplicates from the history.
+HISTCONTROL="ignoreboth:erasedups"
+# Use a large history size.
 HISTSIZE=20000
+HISTFILESIZE=20000
 
+# The timestamp format for history entries
+HISTTIMEFORMAT="[%F @ %I:%M:%S%P] "
 
+# Commands here are automatically excluded from history.
+HISTIGNORE="ls:cd"
 
-### General Shell Options ###
-
-# append to the history file, don't overwrite it
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+# Append to the history file; don't overwrite it for setting history length.
+# See HISTSIZE and HISTFILESIZE in bash(1)
 shopt -s histappend
 
 # Save all lines of a multi-line command in the same entry
 shopt -s cmdhist
+
+# Write history to disk, and then immediately reload it. This allows history to
+# be common to all open shells, and shareable between each other
+function reload_history() {
+  # Append history lines from this session to the history fil
+  history -a
+  # Clear the history list by deleting all of the entries
+  history -c
+  # Read the history file and append the contents to the history list
+  history -r
+}
+
+
+### General Shell Options ###
 
 # Update the values of LINES and COLUMNS after each command.
 shopt -s checkwinsize
@@ -42,6 +58,7 @@ shopt -s no_empty_cmd_completion
 shopt -s globstar
 # Case-insensitive pathname expansion
 shopt -s nocaseglob
+
 
 ### Shell Prompt ###
 function _set_ps1() {
@@ -90,7 +107,8 @@ function _set_ps1() {
 
 # Execute a command before printing the value of PS1. Allows for things like
 # outputting the exit code of the last run command.
-export PROMPT_COMMAND="_set_ps1"
+export PROMPT_COMMAND="reload_history; _set_ps1"
+
 
 ### Bash Completion ###
 
@@ -135,6 +153,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
 
 ### Other Files ###
 
