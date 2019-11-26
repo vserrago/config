@@ -92,13 +92,16 @@ function _set_ps1() {
 # outputting the exit code of the last run command.
 export PROMPT_COMMAND="_set_ps1"
 
+### Bash Completion ###
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
+# In /etc
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+# Completion in /usr/share
+[ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
+
 
 ### Aliases ###
 
