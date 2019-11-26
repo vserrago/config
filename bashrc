@@ -44,7 +44,9 @@ shopt -s globstar
 shopt -s nocaseglob
 
 ### Shell Prompt ###
-function set_ps1() {
+function _set_ps1() {
+  local exit_code="$?"
+
   # Standard ANSI Colour Codes
   local blue='\[\033[00;34m\]'
   local cyan='\[\033[00;36m\]'
@@ -54,7 +56,7 @@ function set_ps1() {
   local white='\[\033[01;37m\]'
   local yellow='\[\033[00;33m\]'
 
-  # Light ANSI Colour Codes
+  # light ansi colour codes
   local l_blue='\[\033[01;34m\]'
   local l_cyan='\[\033[01;36m\]'
   local l_gray='\[\033[00;37m\]'
@@ -63,12 +65,19 @@ function set_ps1() {
   local l_red='\[\033[01;31m\]'
   local l_yellow='\[\033[01;33m\]'
 
-  # The "end of colour" code
+  # the "end of colour" code
   local end='\[\033[0m\]'
 
+  local exit_code_string
+  if [[ "${exit_code}" == "0" ]]; then
+    exit_code_string="[?: ${green}${exit_code}${end}]"
+  else
+    exit_code_string="[?: ${red}${exit_code}${end}]"
+  fi
+
   # Line 1 Format:
-  # <Date>: [J: <Job Count>] [C/H: <Command #>/<History #>]
-  local line_1="${l_gray}\d \T: [J: \j] [C/H: \#/\!]${end}"
+  # <Date>: [J: <Job Count>] [C/H: <Command #>/<History #>] [?: <exit_code>]
+  local line_1="${l_gray}\d \T: [J: \j] [C/H: \#/\!]${end} ${exit_code_string}"
 
   # Line 2 Format:
   # <User>@<Host>:<Working Dir><Prompt Char (#/$)>
@@ -76,10 +85,12 @@ function set_ps1() {
 
   # Adding a space after the newline gives a space between the bash vi mode
   # string and the second line of the prompt.
-  echo -n "${line_1}\n ${line_2}"
+  export PS1="${line_1}\n ${line_2}"
 }
 
-PS1="$(set_ps1)"
+# Execute a command before printing the value of PS1. Allows for things like
+# outputting the exit code of the last run command.
+export PROMPT_COMMAND="_set_ps1"
 
 
 # enable programmable completion features (you don't need to enable
