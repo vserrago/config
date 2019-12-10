@@ -17,6 +17,10 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+# Default Environment Variables
+export EDITOR="vim"
+export BROWSER="firefox"
+
 # Include machine-local configuration, if needed. For configuration I would not
 # want to version in this git repository.
 if [ -f "$HOME/.profile_local" ]; then
