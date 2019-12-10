@@ -102,7 +102,7 @@ function _set_ps1() {
 
   # Adding a space after the newline gives a space between the bash vi mode
   # string and the second line of the prompt.
-  export PS1="${line_1}\n ${line_2}"
+  export PS1="${line_1}\n ${line_2} "
 }
 
 # Execute a command before printing the value of PS1. Allows for things like
