@@ -62,7 +62,10 @@ shopt -s nocaseglob
 
 ### Shell Prompt ###
 function _set_ps1() {
+  # Capture the exit code before executing the reload_history function, which
+  # has its own exit code.
   local exit_code="$?"
+  reload_history
 
   # Standard ANSI Colour Codes
   local blue='\[\033[00;34m\]'
@@ -107,7 +110,7 @@ function _set_ps1() {
 
 # Execute a command before printing the value of PS1. Allows for things like
 # outputting the exit code of the last run command.
-export PROMPT_COMMAND="reload_history; _set_ps1"
+export PROMPT_COMMAND="_set_ps1"
 
 
 ### Bash Completion ###
