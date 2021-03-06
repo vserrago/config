@@ -3,8 +3,9 @@
   vars:
     config_base: "{{ playbook_dir }}"
     target_home: "/home/{{ target_user }}"
+    xdg_config_home: "{{ target_user }}/.config"
   tasks:
-    - name: Install Dotfile Configuration
+    - name: install dotfile configuration
       include_tasks:
         file: install-config.yml
         apply:
@@ -24,4 +25,15 @@
         - { file: 'vimrc' }
         - { file: 'xinitrc' }
         - { file: 'xsession' }
-        - { file: 'Xresources' }
+    # TODO: Auto-create directory for configuration
+    - name: install xdg dotfile configuration
+      include_tasks:
+        file: install-config.yml
+        apply:
+          vars:
+            config:
+              src: "{{ config_base }}/{{ item.file }}"
+              dest: "{{ target_home }}/.config/{{ item.file }}"
+            backup_dir: "{{ target_home }}/.config-backup"
+      loop:
+        - { file: 'awesome/rc.lua' }
