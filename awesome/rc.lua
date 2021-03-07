@@ -212,7 +212,8 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
-            mytextclock,
+            -- Put some space between the clock and the other widgets
+            wibox.container.margin(mytextclock, 5, 5, 0, 0),
             s.mylayoutbox,
         },
     }
