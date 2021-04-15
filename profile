@@ -8,10 +8,8 @@
 #stty erase 
 stty erase 
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+# Add user's private bin to the path.
+PATH="$HOME/bin:$PATH"
 
 # Default Environment Variables
 export EDITOR="vim"
