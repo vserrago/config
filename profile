@@ -5,8 +5,8 @@
 # the files are located in the bash-doc package.
 
 # This sets the backspace key.  If it doesn't work, try "stty erase ^?"
-#stty erase 
-stty erase 
+# stty erase 
+# stty erase 
 
 # Add user's private bin to the path.
 PATH="$HOME/bin:$PATH"
