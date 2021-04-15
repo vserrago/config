@@ -37,3 +37,4 @@
             backup_dir: "{{ target_home }}/.config-backup"
       loop:
         - { file: 'awesome/rc.lua' }
+        - { file: 'tealdeer/config.toml' }
