@@ -227,10 +227,26 @@ nnoremap Q @@
 " Have K mimic J
 nnoremap K kJ
 
+" Move line down by 1
+nnoremap <A-j> :m .+1<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+
+" Move line up by 1
+nnoremap <a-k> :m .-2<cr>==
+inoremap <a-k> <esc>:m .-2<cr>==gi
+vnoremap <a-k> :m '<-2<cr>gv=gv
+
 " Insert newline below
-nnoremap <Leader>o o<esc>
+nnoremap <A-o> o<esc>
+inoremap <A-o> <cr>
+" TODO
+"vnoremap <A-o> A<cr><esc>gv
+
 " Insert newline above cursor
-nnoremap <Leader>O O<esc>
+nnoremap <A-O> O<esc>
+inoremap <A-O> <esc>O
+"vnoremap <A-O> I<cr><esc>gv
 
 " Toggle tab insertion
 nnoremap <leader><tab> :set expandtab! expandtab?<cr>
