@@ -139,6 +139,14 @@ alias reload-bash-profile='. ~/.profile'
 alias reload-inputrc='bind -f ~/.inputrc'
 alias reload-profile='. ~/.profile'
 
+# Initialize environments
+alias init-rbenv='eval "$(rbenv init -)"'
+
+# History
+alias histag='history | ag'
+alias histgrep='history | grep'
+alias histrg='history | rg'
+
 # Aliases for ls
 alias ll='ls -l'
 alias lh='ls -lh'
@@ -156,7 +164,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
-
 
 ### Other Files ###
 

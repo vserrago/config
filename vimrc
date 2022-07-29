@@ -18,16 +18,17 @@ call plug#begin('~/.vim/bundle')
 Plug 'tpope/vim-sensible'
 
 " Colour Schemes
+Plug 'MaxSt/FlatColor'
 Plug 'altercation/vim-colors-solarized'
 Plug 'nanotech/jellybeans.vim'
 Plug 'trapd00r/neverland-vim-theme'
-Plug 'MaxSt/FlatColor'
 Plug 'vim-scripts/Gummybears'
 
 " Functional Plugins
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'elzr/vim-json'
 Plug 'junegunn/vim-easy-align'
-Plug 'christoomey/vim-tmux-navigator'
+Plug 'prabirshrestha/vim-lsp'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -139,6 +140,8 @@ endif
 
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
+function! CloseOldCargoTerms()
+endfunction
 
 " Auto Commands
 " =============
@@ -160,6 +163,25 @@ if has("autocmd")
         augroup DisableGuiVisualBell
             autocmd!
             autocmd GUIEnter * set t_vb=
+        augroup end
+    endif
+
+    if executable('rust-analyzer')
+        augroup SetupRustAnalyzer
+          autocmd!
+          autocmd User lsp_setup call lsp#register_server({
+                \   'name': 'Rust Language Server',
+                \   'cmd': {server_info->['rust-analyzer']},
+                \   'whitelist': ['rust'],
+                \ })
+        augroup end
+    endif
+
+    if has("terminal")
+        augroup CargoTerminalManagement
+          autocmd!
+          " buffkill aF something
+          "autocmd TerminalWinOpen * bdelete! "aF"
         augroup end
     endif
 endif
@@ -277,3 +299,8 @@ nnoremap <leader>w :set wrap! wrap?<cr>
 " Vimrc editing commands
 nnoremap <leader>vrc :e $MYVIMRC<cr>
 
+" Rust-related mappings
+nnoremap <leader>Cr :Cargo run
+nnoremap <leader>Cc :Cargo check<cr>
+nnoremap <leader>Cb :Cargo build<cr>
+nnoremap <leader>Ct :Cargo test<cr>
