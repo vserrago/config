@@ -21,5 +21,8 @@ gitconfig = "~/.gitconfig"
 [vim.files]
 vimrc = "~/.vimrc"
 
+[xresources.files]
+Xresources = "~/.Xresources"
+
 [xinitrc.files]
 xinitrc = "~/.xinitrc"
