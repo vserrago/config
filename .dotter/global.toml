@@ -1,0 +1,11 @@
+[profile.files]
+profile = "~/.profile"
+
+[bash.files]
+#depends = ["profile"]
+bashrc = "~/.bashrc"
+bash_profile = "~/.bash_profile"
+inputrc = "~/.inputrc"
+
+[vim.files]
+vimrc = "~/.vimrc"

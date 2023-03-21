@@ -3,3 +3,9 @@
 *.bak
 vim/.netrwhist
 vim/bundle
+
+# Dotter files
+dotter
+.dotter/cache
+.dotter/cache.toml
+.dotter/local.toml
