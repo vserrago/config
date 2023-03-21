@@ -2,10 +2,24 @@
 profile = "~/.profile"
 
 [bash.files]
+#TODO: Uncommenting causes error
 #depends = ["profile"]
 bashrc = "~/.bashrc"
 bash_profile = "~/.bash_profile"
+dircolors = "~/.dircolors"
 inputrc = "~/.inputrc"
+
+[git.files]
+gitconfig = "~/.gitconfig"
+
+[tealdeer.files]
+"tealdeer/config.toml" = "~/.tealdeer/config.toml"
+
+[tmux.files]
+"tmux.conf" = "~/.tmux.conf"
 
 [vim.files]
 vimrc = "~/.vimrc"
+
+[xinitrc.files]
+xinitrc = "~/.xinitrc"
