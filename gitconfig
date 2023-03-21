@@ -1,31 +1,31 @@
-[user]
-	name = Valentin Serrago
-	email = valentin.serrago@gmail.com
-[color]
-	ui = true
-[color "diff"]
-	; see 'git help config' /color.diff.<slot> for more options
-	meta = cyan
-	frag = magenta bold
-[core]
-	editor = vim
-[merge]
-	tool = vimdiff
 [alias]
-	adal = add --all
-	amend = commit --amend
-	cmv = commit -v
-	cmva = !git add --all && git commit -v
-	discard = checkout --
-	lg = log -p --color-words
-	lgg = log --oneline --graph
-	st = status
-	unstage = reset HEAD
+  adal = add --all
+  amend = commit --amend
+  cmv = commit -v
+  cmva = !git add --all && git commit -v
+  discard = checkout --
+  lg = log -p --color-words
+  lgg = log --oneline --graph
+  st = status
+  unstage = reset HEAD
+[color]
+  ui = true
+[color "diff"]
+  ; see 'git help config' /color.diff.<slot> for more options
+  frag = magenta bold
+  meta = cyan
 [commit]
-	verbose = true
-[push]
-	default = current
-[pull]
-	ff = only
+  verbose = true
+[core]
+  editor = vim
 [init]
-	defaultBranch = master
+  defaultBranch = master
+[merge]
+  tool = vimdiff
+[pull]
+  ff = only
+[push]
+  default = current
+[user]
+  email = valentin.serrago@gmail.com
+  name = Valentin Serrago
