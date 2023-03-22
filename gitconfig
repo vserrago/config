@@ -1,5 +1,6 @@
 [alias]
   aa = add --all
+  ai = add --interactive
   amend = commit --amend
   cmv = commit -v
   cmva = !git add --all && git commit -v
