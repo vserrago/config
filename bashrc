@@ -140,6 +140,7 @@ alias reload-inputrc='bind -f ~/.inputrc'
 alias reload-profile='. ~/.profile'
 
 # Initialize environments
+alias init-agent='eval "$(ssh-agent -s)"'
 alias init-rbenv='eval "$(rbenv init -)"'
 
 # History
