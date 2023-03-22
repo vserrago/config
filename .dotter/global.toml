@@ -12,6 +12,11 @@ inputrc = "~/.inputrc"
 [git.files]
 gitconfig = "~/.gitconfig"
 
+[git.variables]
+autocrlf = "input"
+user.name = "Valentin Serrago"
+user.email = "valentin.serrago@gmail.com"
+
 [tealdeer.files]
 "tealdeer/config.toml" = "~/.tealdeer/config.toml"
 

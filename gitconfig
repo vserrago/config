@@ -1,5 +1,5 @@
 [alias]
-  adal = add --all
+  aa = add --all
   amend = commit --amend
   cmv = commit -v
   cmva = !git add --all && git commit -v
@@ -7,7 +7,6 @@
   lg = log -p --color-words
   lgg = log --oneline --graph
   st = status
-  unstage = reset HEAD
 [color]
   ui = true
 [color "diff"]
@@ -17,6 +16,10 @@
 [commit]
   verbose = true
 [core]
+  # true:  Convert remote LF into local CRLF, and local CRLF into remote LF.
+  # false: Local line endings stay as-is from remote.
+  # input: Convert remote CRLF into local LF.
+  autocrlf = {{autocrlf}}
   editor = vim
 [init]
   defaultBranch = master
@@ -25,7 +28,8 @@
 [pull]
   ff = only
 [push]
+  autoSetupRemote = true
   default = current
 [user]
-  email = valentin.serrago@gmail.com
-  name = Valentin Serrago
+  email = {{user.email}}
+  name = {{user.name}}
