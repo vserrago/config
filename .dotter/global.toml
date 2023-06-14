@@ -10,7 +10,7 @@ dircolors = "~/.dircolors"
 inputrc = "~/.inputrc"
 
 [git.files]
-gitconfig = "~/.gitconfig"
+"gitconfig.hbs" = "~/.gitconfig"
 
 [git.variables]
 autocrlf = "input"
